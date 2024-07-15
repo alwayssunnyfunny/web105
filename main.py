@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session, redirect, url_for, f
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Set a secret key for session management
+app.secret_key = 'your_secret_key' 
 
 # Configure SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:admin@localhost:5432/flas_database'
@@ -23,7 +23,7 @@ class User(db.Model):
     registration_date = db.Column(db.DateTime, nullable=False, default=db.func.current_timestamp())
     semester_id = db.Column(db.Integer, db.ForeignKey('semester.semester_id'))
 
-# Adjust the UsersSem model to ensure it references the correct table and column
+
 class UsersSem(db.Model):
     __tablename__ = 'users_sem'
     user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), primary_key=True)
@@ -76,10 +76,10 @@ def loginhello():
         else:
             flash("Invalid email format. Please use an email ending with '@email.com'.")
 
-        return redirect(url_for("user"))  # Redirect to user route after successful login
-    
+        return redirect(url_for("user")) 
+        
     elif "user" in session:
-        return redirect(url_for("user"))  # Redirect if user is already logged in
+        return redirect(url_for("user"))  
     
     return render_template("loginhello.html")
 
@@ -93,7 +93,7 @@ def user():
         user = session["user"]
         return render_template("subject.html")
     else:
-        return redirect(url_for("loginhello"))  # Redirect to loginhello if user is not logged in
+        return redirect(url_for("loginhello"))  
 
 if __name__ == '__main__':
     app.run(debug=True)
