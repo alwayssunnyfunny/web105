@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with Styled Inputs</title>
+    <style>
+        /* Center the form horizontally */
+        body {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Adjust to center vertically */
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+
+        form {
+            text-align: center;
+            font-size: 20px;
+            line-height: 1.5;
+            width: 300px; /* Adjust width as needed */
+            padding: 20px;
+            
+        }
+
+        .input-container {
+            margin-bottom: 15px;
+            text-align: left; /* Adjust alignment of inputs */
+        }
+
+        .input-container label {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 5px;
+        }
+
+        .input-container input[type="text"],
+        .input-container input[type="password"] {
+            display: flex;
+            flex-direction: row;
+            width: 100%; /* Adjust width as needed */
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .input-container button {
+            width: 100%; /* Adjust width as needed */
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .input-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<form action="/loginhello"method="post">
+    <div class="input-container">
+        <label for="username-email">Username/Email:</label>
+        <input type="text" id="username-email" name="username-email" required>
+    </div>
+    <div class="input-container">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    
+    <div class="input-container">
+        <button type="sign-up">Login</button>
+    </div>
+</form>
+
+</body>
+</html>
